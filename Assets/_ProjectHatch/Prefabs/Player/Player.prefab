@@ -244,6 +244,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  _checkRadius: 0.1
   _wallSlidingSpeed: 2
   _wallCheckTransform: {fileID: 1141518896542347688}
   _wallLayerMask:
