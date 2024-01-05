@@ -23,6 +23,7 @@ namespace ProjectHatch
         private Transform _groundCheckTransform;
         [SerializeField]
         private LayerMask _groundLayerMask;
+        [SerializeField] private float _checkRadius = 0.25f;
 
         [Header("Wall Check")]
         [SerializeField]
@@ -38,7 +39,6 @@ namespace ProjectHatch
 
         private float _horizontalInput;
         private bool _isFacingRight = true;
-        private float _checkRadius = 0.25f;
 
         // Coyote Time Properties
         private float _coyoteTime = 0.25f;
