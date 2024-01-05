@@ -265,6 +265,8 @@ MonoBehaviour:
   _playerMovement: {fileID: 1141518895653616372}
   _vfxDustPrefab: {fileID: 5887912450836460648, guid: c472de3ddcd6d73439f9bafade2f4b63, type: 3}
   _positionVfxDust: {fileID: 1141518895370908268}
+  _jumpSfx: {fileID: 11400000, guid: 31d1f5e2286e81945b6dc591c4517afb, type: 2}
+  _dashSfx: {fileID: 11400000, guid: 140b2d17421528c47927195b68e2ca9f, type: 2}
 --- !u!1 &1141518896542347691
 GameObject:
   m_ObjectHideFlags: 0

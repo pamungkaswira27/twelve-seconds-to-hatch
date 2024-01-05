@@ -9,6 +9,7 @@ namespace ProjectHatch
         {
             InitializeSingleton();
             SpawnGameObject("EventSystem");
+            SpawnGameObject("AudioManager");
         }
 
         private static void InitializeSingleton()
