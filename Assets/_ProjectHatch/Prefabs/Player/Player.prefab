@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1141518895653616377}
   - component: {fileID: 1141518895653616373}
   - component: {fileID: 1141518895653616372}
+  - component: {fileID: 2034453568647344357}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 350
-  _jumpPower: 15
+  _jumpPower: 13.5
   _dashPower: 25
   _groundCheckTransform: {fileID: 1141518895370908268}
   _groundLayerMask:
@@ -248,6 +249,21 @@ MonoBehaviour:
   _wallLayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &2034453568647344357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141518895653616376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985bd24b578176649b3a345fffb938ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 1141518895653616372}
+  _vfxDustPrefab: {fileID: 5887912450836460648, guid: c472de3ddcd6d73439f9bafade2f4b63, type: 3}
+  _positionVfxDust: {fileID: 1141518895370908268}
 --- !u!1 &1141518896542347691
 GameObject:
   m_ObjectHideFlags: 0

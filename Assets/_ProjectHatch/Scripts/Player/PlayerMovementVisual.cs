@@ -10,10 +10,11 @@ namespace ProjectHatch.Player.Movement.Visual
 
         private void Start()
         {
-            _playerMovement.OnPlayerJustGrounded += OnPlayerIsGrounded;
+            _playerMovement.OnPlayerJustGrounded += PlayDustVFX;
+            _playerMovement.OnPlayerJumped += PlayDustVFX;
         }
 
-        private void OnPlayerIsGrounded()
+        private void PlayDustVFX()
         {
             var go = Instantiate(_vfxDustPrefab, _positionVfxDust.position, Quaternion.Euler(-90, 0, 0));
             Destroy(go, 2f);

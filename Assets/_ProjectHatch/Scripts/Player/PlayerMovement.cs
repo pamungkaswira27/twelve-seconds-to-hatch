@@ -60,6 +60,7 @@ namespace ProjectHatch
         private float _dashingCooldown = 1f;
 
         public event Action OnPlayerJustGrounded;
+        public event Action OnPlayerJumped;
 
         private void Awake()
         {
@@ -124,6 +125,7 @@ namespace ProjectHatch
             }
 
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpPower);
+            OnPlayerJumped?.Invoke();
         }
 
         public void ResetCoyoteTime()
