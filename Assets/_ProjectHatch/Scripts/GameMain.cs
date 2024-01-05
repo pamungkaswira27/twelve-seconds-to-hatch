@@ -14,8 +14,10 @@ namespace ProjectHatch
         private static void InitializeSingleton()
         {
             InputManager.Instance = null;
+            LevelManager.Instance = null;
             PlayerManager.Instance = null;
         }
+
         private static void SpawnGameObject(string name)
         {
             GameObject go = Resources.Load<GameObject>(name);
