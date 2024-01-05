@@ -8,12 +8,18 @@ namespace ProjectHatch
         private static void Init()
         {
             InitializeSingleton();
+            SpawnGameObject("EventSystem");
         }
 
         private static void InitializeSingleton()
         {
             InputManager.Instance = null;
             PlayerManager.Instance = null;
+        }
+        private static void SpawnGameObject(string name)
+        {
+            GameObject go = Resources.Load<GameObject>(name);
+            Object.Instantiate(go);
         }
     }
 }
