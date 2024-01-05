@@ -61,6 +61,7 @@ namespace ProjectHatch
 
         public event Action OnPlayerJustGrounded;
         public event Action OnPlayerJumped;
+        public event Action OnPlayerDashed;
 
         private void Awake()
         {
@@ -250,6 +251,7 @@ namespace ProjectHatch
             float originalGravity = _rigidbody.gravityScale;
             _rigidbody.gravityScale = 0f;
             _rigidbody.velocity = new Vector2(transform.localScale.x * _dashPower, 0f);
+            OnPlayerDashed?.Invoke();
 
             yield return new WaitForSeconds(_dashingTime);
 

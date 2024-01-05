@@ -9,11 +9,18 @@ namespace ProjectHatch.Player.Movement.Visual
         [SerializeField] private GameObject _vfxDustPrefab;
         [SerializeField] private Transform _positionVfxDust;
         [SerializeField] private SoundFileObject _jumpSfx;
+        [SerializeField] private SoundFileObject _dashSfx;
 
         private void Start()
         {
             _playerMovement.OnPlayerJustGrounded += PlayDustVFX;
             _playerMovement.OnPlayerJumped += OnPlayerJumped;
+            _playerMovement.OnPlayerDashed += OnPlayerDash;
+        }
+
+        private void OnPlayerDash()
+        {
+            AudioManager.PlaySound(_dashSfx);
         }
 
         private void OnPlayerJumped()
