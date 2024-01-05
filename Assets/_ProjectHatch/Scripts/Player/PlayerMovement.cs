@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -58,6 +59,8 @@ namespace ProjectHatch
         private float _dashingTime = 0.2f;
         private float _dashingCooldown = 1f;
 
+        public event Action OnPlayerJustGrounded;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -73,6 +76,8 @@ namespace ProjectHatch
 
         private void Update()
         {
+            UpdateIsGrounded();
+
             if (_isDashing)
             {
                 return;
@@ -83,6 +88,22 @@ namespace ProjectHatch
             WallSlide();
             WallJump();
             FlipPlayer();
+        }
+        private bool _isGrounded;
+
+        private void UpdateIsGrounded()
+        {
+            bool previousIsGroundedValue = _isGrounded;
+            _isGrounded = GetIsGrounded();
+
+            if (_isGrounded != previousIsGroundedValue)
+                OnIsGroundedChanged();
+        }
+
+        private void OnIsGroundedChanged()
+        {
+            if (_isGrounded)
+                OnPlayerJustGrounded?.Invoke();
         }
 
         private void FixedUpdate()
@@ -163,7 +184,7 @@ namespace ProjectHatch
 
         private void CoyoteTime()
         {
-            if (!IsGrounded())
+            if (!_isGrounded)
             {
                 _coyoteTimeCounter -= Time.deltaTime;
                 return;
@@ -174,7 +195,7 @@ namespace ProjectHatch
 
         private void WallSlide()
         {
-            if (IsWalled() && !IsGrounded() && _horizontalInput != 0f)
+            if (IsWalled() && !_isGrounded && _horizontalInput != 0f)
             {
                 _isWallSliding = true;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Mathf.Clamp(_rigidbody.velocity.y, -_wallSlidingSpeed, float.MaxValue));
@@ -238,7 +259,7 @@ namespace ProjectHatch
             _canDash = true;
         }
 
-        private bool IsGrounded()
+        private bool GetIsGrounded()
         {
             int numberOfCollider = Physics2D.OverlapCircleNonAlloc(_groundCheckTransform.position, _checkRadius, _groundCheckResults, _groundLayerMask);
 
