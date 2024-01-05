@@ -34,10 +34,16 @@ namespace ProjectHatch
             return moveInput;
         }
 
+        public bool IsJumpButtonPressed()
+        {
+            return _playerInputAction.Player.Jump.IsPressed(); ;
+        }
+
         private void SubscribeInputEvents()
         {
             _playerInputAction.Player.Jump.performed += Jump_performed;
             _playerInputAction.Player.Jump.canceled += Jump_canceled;
+            _playerInputAction.Player.Dash.performed += Dash_performed;
         }
 
         private void UnsubscribeInputEvents()
@@ -54,6 +60,11 @@ namespace ProjectHatch
         private void Jump_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             PlayerManager.Instance.PlayerMovement.ResetCoyoteTime();
+        }
+
+        private void Dash_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            PlayerManager.Instance.PlayerMovement.Dash();
         }
     }
 }
