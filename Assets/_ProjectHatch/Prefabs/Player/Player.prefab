@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 350
-  _jumpPower: 15
+  _jumpPower: 13.5
   _dashPower: 25
   _groundCheckTransform: {fileID: 1141518895370908268}
   _groundLayerMask:
