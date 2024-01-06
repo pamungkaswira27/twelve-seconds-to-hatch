@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17751e6678a554e44998dbfb20986ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonPlay: {fileID: 8492135408540621821}
+  _sfxUIButtonClick: {fileID: 11400000, guid: 727e0dd88a1df0545b6c71f5bb6ef17a, type: 2}
 --- !u!1 &8492135409685807093
 GameObject:
   m_ObjectHideFlags: 0
