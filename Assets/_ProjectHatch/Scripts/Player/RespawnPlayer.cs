@@ -26,6 +26,7 @@ namespace ProjectHatch
             Destroy(vfx, _deadVFX.main.duration);
             AudioManager.PlaySound(_deadSFX);
             InputManager.Instance.PlayerInputAction.Disable();
+            TimerManager.Instance.ResetTimer();
             gameObject.SetActive(false);
 
             Invoke(nameof(Respawn), _respawnTime);

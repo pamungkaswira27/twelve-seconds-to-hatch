@@ -1,46 +1,59 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using StinkySteak.SimulationTimer;
+using ProjectHatch.UI.GUI.Game;
 
 namespace ProjectHatch
 {
     public class Timer : MonoBehaviour
     {
-        //
-        public float timerValue = 12;
-        public TMP_Text TextTimer;
+        [SerializeField]
+        private GUIGame _gUIGame;
 
-        public bool GameOn = true;
-        public GameObject CanvasLose;
-
-        private SimulationTimer gameTimer;
+        private PauseableSimulationTimer _gameTimer;
 
         private void Start()
         {
-            gameTimer = SimulationTimer.CreateFromSeconds(timerValue);
+            TimerManager.Instance.SetupTimer(this);
         }
-
 
         private void Update()
         {
-            if (gameTimer.IsExpired())
+            if (InputManager.Instance.IsInputPerformed() && !_gameTimer.IsRunning)
             {
-                Debug.Log("You Lose");
-                CanvasLose.SetActive(true);
-                GameOn = false;
+                _gameTimer = PauseableSimulationTimer.CreateFromSeconds(TimerManager.Instance.GameTime);
             }
 
-            SetText(gameTimer.RemainingSeconds);
+            if (_gameTimer.IsExpired())
+            {
+                Debug.Log("Lose");
+            }
+
+            SetText(_gameTimer.RemainingSeconds);
+        }
+
+        public void ResetTimer()
+        {
+            _gameTimer = PauseableSimulationTimer.None;
+        }
+
+        public void PauseTimer()
+        {
+            _gameTimer.Pause();
         }
 
         private void SetText(float timeToDisplay)
         {
+            if (timeToDisplay <= 0)
+            {
+                _gUIGame.TextTimer.text = "12:00";
+                return;
+            }
+
             int Minutes = Mathf.FloorToInt(timeToDisplay / 60);
             int Seconds = Mathf.FloorToInt(timeToDisplay % 60);
             float MilleSeconds = timeToDisplay % 1 * 99;
 
-            TextTimer.text = string.Format("{0:0}:{1:00}:{2:00}", Minutes, Seconds, MilleSeconds);
+            _gUIGame.TextTimer.text = string.Format("{1:00}:{2:00}", Minutes, Seconds, MilleSeconds);
         }
     }
 }

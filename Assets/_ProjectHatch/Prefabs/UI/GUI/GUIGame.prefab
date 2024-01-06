@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 926932971601290354}
   - component: {fileID: 926932971601290355}
   - component: {fileID: 926932971601290367}
+  - component: {fileID: 7076463250522819710}
   m_Layer: 5
   m_Name: GUIGame
   m_TagString: Untagged
@@ -250,3 +251,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textTimer: {fileID: 926932970227075741}
+--- !u!114 &7076463250522819710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926932971601290352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94cde4d837875145bf893434c3f5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 12
+  _gUIGame: {fileID: 926932971601290367}

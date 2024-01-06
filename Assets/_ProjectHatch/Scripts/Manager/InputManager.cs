@@ -41,6 +41,15 @@ namespace ProjectHatch
             return _playerInputAction.Player.Jump.IsPressed(); ;
         }
 
+        public bool IsInputPerformed()
+        {
+            bool isMovePerformed = _playerInputAction.Player.Move.IsPressed();
+            bool isJumpPerformed = _playerInputAction.Player.Jump.IsPressed();
+            bool isDashPerformed = _playerInputAction.Player.Dash.IsPressed();
+
+            return isMovePerformed || isJumpPerformed || isDashPerformed;
+        }
+
         private void SubscribeInputEvents()
         {
             _playerInputAction.Player.Jump.performed += Jump_performed;

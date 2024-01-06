@@ -29,6 +29,8 @@ namespace ProjectHatch
 
         public void LoadNextLevel()
         {
+            TimerManager.Instance.PauseTimer();
+
             if (_currentLevelIndex >= _levelQueue.Count)
             {
                 Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
@@ -86,6 +88,7 @@ namespace ProjectHatch
 
             GUITransition.Instance.PlayExitTransition();
             InputManager.Instance.PlayerInputAction.Enable();
+            TimerManager.Instance.ResetTimer();
         }
     }
 }
