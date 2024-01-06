@@ -9,11 +9,6 @@ namespace ProjectHatch
         public Transform position2;
         bool turnback;
 
-        private void Start()
-        {
-
-        }
-
         private void Update()
         {
             if (transform.position.y >= position1.position.y)
