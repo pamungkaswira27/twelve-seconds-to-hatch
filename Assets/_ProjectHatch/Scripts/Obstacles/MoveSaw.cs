@@ -4,19 +4,23 @@ namespace ProjectHatch
 {
     public class MoveSaw : MonoBehaviour
     {
-        public float speed;
-        public Transform position1;
-        public Transform position2;
-        bool turnback;
+        [SerializeField]
+        private float speed;
+        [SerializeField]
+        private Transform position1;
+        [SerializeField]
+        private Transform position2;
+
+        private bool turnback;
 
         private void Update()
         {
-            if (transform.position.y >= position1.position.y)
+            if (Vector2.Distance(transform.position, position1.position) <= 0f)
             {
                 turnback = true;
             }
 
-            if (transform.position.y <= position2.position.y)
+            if (Vector2.Distance(transform.position, position2.position) <= 0f)
             {
                 turnback = false;
             }
