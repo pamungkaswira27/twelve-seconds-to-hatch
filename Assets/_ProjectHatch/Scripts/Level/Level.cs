@@ -9,7 +9,8 @@ namespace ProjectHatch
 
         private void OnEnable()
         {
-            PlayerSpawnManager.Instance.SpawnPlayer(_initialSpawnPoint.position);
+            PlayerSpawnManager.Instance.SetInitialSpawnPosition(_initialSpawnPoint.position);
+            PlayerSpawnManager.Instance.SpawnPlayer();
         }
     }
 }

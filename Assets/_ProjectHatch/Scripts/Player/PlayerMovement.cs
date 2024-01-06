@@ -59,6 +59,7 @@ namespace ProjectHatch
         private bool _isDashing;
         private float _dashingTime = 0.2f;
         private float _dashingCooldown = 1f;
+        private Coroutine _dashCoroutine;
 
         public event Action OnPlayerJustGrounded;
         public event Action OnPlayerJumped;
@@ -91,6 +92,15 @@ namespace ProjectHatch
             WallSlide();
             WallJump();
             FlipPlayer();
+        }
+
+        private void OnDisable()
+        {
+            if (_dashCoroutine != null)
+            {
+                StopCoroutine(_dashCoroutine);
+                _canDash = true;
+            }
         }
 
         private void UpdateIsGrounded()
@@ -146,7 +156,15 @@ namespace ProjectHatch
                 return;
             }
 
-            StartCoroutine(Dash_Coroutine());
+            _dashCoroutine = StartCoroutine(Dash_Coroutine());
+        }
+
+        public void FlipSprite()
+        {
+            _isFacingRight = !_isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
 
         private void HandleInput()
@@ -180,14 +198,6 @@ namespace ProjectHatch
             {
                 FlipSprite();
             }
-        }
-
-        private void FlipSprite()
-        {
-            _isFacingRight = !_isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
         }
 
         private void CoyoteTime()

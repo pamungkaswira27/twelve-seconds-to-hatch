@@ -10,6 +10,7 @@ namespace ProjectHatch
         private GameObject _playerPrefab;
 
         private GameObject _player;
+        private Vector3 _initialSpawnPosition;
 
         private void Awake()
         {
@@ -17,9 +18,19 @@ namespace ProjectHatch
             InstantiatePlayer();
         }
 
-        public void SpawnPlayer(Vector3 spawnPos)
+        public Vector3 GetInitialSpawnPosition()
         {
-            _player.transform.position = spawnPos;
+            return _initialSpawnPosition;
+        }
+
+        public void SetInitialSpawnPosition(Vector3 position)
+        {
+            _initialSpawnPosition = position;
+        }
+
+        public void SpawnPlayer()
+        {
+            _player.transform.position = _initialSpawnPosition;
             _player.SetActive(true);
         }
 

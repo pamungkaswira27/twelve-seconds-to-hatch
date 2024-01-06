@@ -280,6 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212cd93949315df45a481cd99700cc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadVFX: {fileID: 5438454549783208052, guid: a1492ccd79c0a934c83cb77732860c31, type: 3}
+  _deadSFX: {fileID: 11400000, guid: a19c68ac5cd09c54bba8ac46bc61a8ab, type: 2}
+  _respawnTime: 1
 --- !u!1 &1141518896542347691
 GameObject:
   m_ObjectHideFlags: 0

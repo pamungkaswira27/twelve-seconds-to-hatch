@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6670161509533304595}
   m_Layer: 0
   m_Name: Saw_static
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6262068504167186738}
   m_Layer: 0
   m_Name: Saw_Static
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
