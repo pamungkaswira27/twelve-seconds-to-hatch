@@ -62,6 +62,8 @@ namespace ProjectHatch
 
         public event Action OnPlayerJustGrounded;
         public event Action OnPlayerJumped;
+        public event Action OnPlayerWallJumped;
+        public event Action OnPlayerWallSlide;
         public event Action OnPlayerDashed;
 
         private void Awake()
@@ -106,6 +108,18 @@ namespace ProjectHatch
         {
             if (_isGrounded)
                 OnPlayerJustGrounded?.Invoke();
+        }
+
+        private void OnIsWallJumpingChanged()
+        {
+            if (_isWallSliding)
+                OnPlayerWallJumped?.Invoke();
+        }
+
+        private void OnIsWallSlideChanged()
+        {
+            if (_isWallSliding)
+                OnPlayerWallSlide?.Invoke();
         }
 
         private void FixedUpdate()
@@ -203,6 +217,8 @@ namespace ProjectHatch
 
         private void WallSlide()
         {
+            bool previousIsWallSliding = _isWallJumping;
+
             if (IsWalled() && !_isGrounded && _horizontalInput != 0f)
             {
                 _isWallSliding = true;
@@ -212,10 +228,15 @@ namespace ProjectHatch
             {
                 _isWallSliding = false;
             }
+
+            if (_isWallSliding != previousIsWallSliding)
+                OnIsWallSlideChanged();
         }
 
         private void WallJump()
         {
+            bool previousWallJumping = _isWallJumping;
+
             if (_isWallSliding)
             {
                 _isWallJumping = false;
@@ -242,6 +263,9 @@ namespace ProjectHatch
 
                 Invoke(nameof(StopWallJumping), _wallJumpingDuration);
             }
+
+            if (_isWallJumping != previousWallJumping)
+                OnIsWallJumpingChanged();
         }
 
         private void StopWallJumping()
