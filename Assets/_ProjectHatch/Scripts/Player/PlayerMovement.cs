@@ -39,6 +39,7 @@ namespace ProjectHatch
 
         private float _horizontalInput;
         private bool _isFacingRight = true;
+        private bool _isGrounded;
 
         // Coyote Time Properties
         private float _coyoteTime = 0.25f;
@@ -91,7 +92,6 @@ namespace ProjectHatch
             WallJump();
             FlipPlayer();
         }
-        private bool _isGrounded;
 
         private void UpdateIsGrounded()
         {
@@ -120,6 +120,11 @@ namespace ProjectHatch
 
         public void Jump()
         {
+            if (_isDashing)
+            {
+                return;
+            }
+
             if (_coyoteTimeCounter <= 0f)
             {
                 return;
