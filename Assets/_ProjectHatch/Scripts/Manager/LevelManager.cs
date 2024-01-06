@@ -29,11 +29,18 @@ namespace ProjectHatch
 
         public void LoadNextLevel()
         {
+            if (_currentLevelIndex >= _levelQueue.Count)
+            {
+                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
+                return;
+            }
+
             StartCoroutine(LoadNextLevel_Coroutine());
         }
 
         private void LoadFirstLevel()
         {
+            GUITransition.Instance.PlayExitTransition();
             SpawnNextLevel();
         }
 
@@ -69,12 +76,6 @@ namespace ProjectHatch
         {
             GUITransition.Instance.PlayEnterTransition();
             InputManager.Instance.PlayerInputAction.Disable();
-
-            if (_currentLevelIndex >= _levelQueue.Count)
-            {
-                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
-                yield return null;
-            }
 
             yield return new WaitForSeconds(GUITransition.Instance.EnterDuration);
 
