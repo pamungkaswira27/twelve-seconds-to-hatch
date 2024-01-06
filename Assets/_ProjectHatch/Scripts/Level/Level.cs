@@ -6,5 +6,10 @@ namespace ProjectHatch
     {
         [SerializeField]
         private Transform _initialSpawnPoint;
+
+        private void OnEnable()
+        {
+            PlayerSpawnManager.Instance.SpawnPlayer(_initialSpawnPoint.position);
+        }
     }
 }

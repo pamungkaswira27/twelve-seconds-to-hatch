@@ -12,6 +12,7 @@ namespace ProjectHatch
 
         private Queue<Level> _levelQueue;
         private Level _currentLevelPrefab;
+        private int _currentLevelIndex = 0;
 
         private void Awake()
         {
@@ -21,19 +22,32 @@ namespace ProjectHatch
         private void Start()
         {
             Initialize();
-            GetNextLevel();
+            SpawnNextLevel();
         }
 
         public void GetNextLevel()
+        {
+            if (_currentLevelIndex >= _levelQueue.Count)
+            {
+                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
+                return;
+            }
+
+            DeactivateCurrentLevel();
+            SpawnNextLevel();
+        }
+
+        private void SpawnNextLevel()
         {
             Level level = _levelQueue.Dequeue();
             level.gameObject.SetActive(true);
             level.transform.position = Vector2.zero;
             _currentLevelPrefab = level;
             _levelQueue.Enqueue(level);
+            _currentLevelIndex++;
         }
 
-        public void DeactivateCurrentLevel()
+        private void DeactivateCurrentLevel()
         {
             _currentLevelPrefab.gameObject.SetActive(false);
             _currentLevelPrefab = null;

@@ -17,6 +17,7 @@ namespace ProjectHatch
             InputManager.Instance = null;
             LevelManager.Instance = null;
             PlayerManager.Instance = null;
+            PlayerSpawnManager.Instance = null;
         }
 
         private static void SpawnGameObject(string name)
