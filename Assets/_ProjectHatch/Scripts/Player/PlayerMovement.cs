@@ -38,6 +38,7 @@ namespace ProjectHatch
         private Collider2D[] _wallCheckResults;
 
         private float _horizontalInput;
+        private float _originalGravity;
         private bool _isFacingRight = true;
         private bool _isGrounded;
 
@@ -78,6 +79,7 @@ namespace ProjectHatch
             _wallCheckResults = new Collider2D[CHECK_RESULT_SIZE];
 
             _wallJumpingPower = new Vector2(_speed * Time.deltaTime, _jumpPower);
+            _originalGravity = _rigidbody.gravityScale;
         }
 
         private void Update()
@@ -101,6 +103,8 @@ namespace ProjectHatch
             if (_dashCoroutine != null)
             {
                 StopCoroutine(_dashCoroutine);
+                _rigidbody.gravityScale = _originalGravity;
+                _isDashing = false;
                 _canDash = true;
             }
         }
@@ -287,14 +291,13 @@ namespace ProjectHatch
         {
             _canDash = false;
             _isDashing = true;
-            float originalGravity = _rigidbody.gravityScale;
             _rigidbody.gravityScale = 0f;
             _rigidbody.velocity = new Vector2(transform.localScale.x * _dashPower, 0f);
             OnPlayerDashed?.Invoke();
 
             yield return new WaitForSeconds(_dashingTime);
 
-            _rigidbody.gravityScale = originalGravity;
+            _rigidbody.gravityScale = _originalGravity;
             _isDashing = false;
 
             yield return new WaitForSeconds(_dashingCooldown);
