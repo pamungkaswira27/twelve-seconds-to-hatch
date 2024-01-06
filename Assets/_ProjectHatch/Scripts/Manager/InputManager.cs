@@ -8,6 +8,8 @@ namespace ProjectHatch
 
         private PlayerInputAction _playerInputAction;
 
+        public PlayerInputAction PlayerInputAction => _playerInputAction;
+
         private void Awake()
         {
             Instance = this;

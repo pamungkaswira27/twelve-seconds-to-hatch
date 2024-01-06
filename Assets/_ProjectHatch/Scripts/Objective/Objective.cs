@@ -36,7 +36,7 @@ namespace ProjectHatch
                 return;
             }
 
-            LevelManager.Instance.GetNextLevel();
+            LevelManager.Instance.LoadNextLevel();
             _isTriggered = true;
         }
 

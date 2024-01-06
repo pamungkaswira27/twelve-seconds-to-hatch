@@ -1,3 +1,5 @@
+using ProjectHatch.UI.GUI.Game.Transition;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,18 +24,16 @@ namespace ProjectHatch
         private void Start()
         {
             Initialize();
-            SpawnNextLevel();
+            LoadFirstLevel();
         }
 
-        public void GetNextLevel()
+        public void LoadNextLevel()
         {
-            if (_currentLevelIndex >= _levelQueue.Count)
-            {
-                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
-                return;
-            }
+            StartCoroutine(LoadNextLevel_Coroutine());
+        }
 
-            DeactivateCurrentLevel();
+        private void LoadFirstLevel()
+        {
             SpawnNextLevel();
         }
 
@@ -63,6 +63,28 @@ namespace ProjectHatch
                 level.gameObject.SetActive(false);
                 _levelQueue.Enqueue(level);
             }
+        }
+
+        private IEnumerator LoadNextLevel_Coroutine()
+        {
+            GUITransition.Instance.PlayEnterTransition();
+            InputManager.Instance.PlayerInputAction.Disable();
+
+            if (_currentLevelIndex >= _levelQueue.Count)
+            {
+                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(GUITransition.Instance.EnterDuration);
+
+            DeactivateCurrentLevel();
+            SpawnNextLevel();
+
+            yield return new WaitForSeconds(GUITransition.Instance.ExitDuration);
+
+            GUITransition.Instance.PlayExitTransition();
+            InputManager.Instance.PlayerInputAction.Enable();
         }
     }
 }
