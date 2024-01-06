@@ -7,6 +7,8 @@ namespace ProjectHatch
         [SerializeField]
         private LayerMask _playerLayerMask;
         [SerializeField]
+        private Transform _checkPosition;
+        [SerializeField]
         private float _checkRadius;
 
         private Collider2D[] _resultColliders;
@@ -24,7 +26,7 @@ namespace ProjectHatch
                 return;
             }
 
-            int numberOfCollider = Physics2D.OverlapCircleNonAlloc(transform.position, _checkRadius, _resultColliders, _playerLayerMask);
+            int numberOfCollider = Physics2D.OverlapCircleNonAlloc(_checkPosition.position, _checkRadius, _resultColliders, _playerLayerMask);
 
             if (numberOfCollider <= 0)
             {
@@ -43,7 +45,7 @@ namespace ProjectHatch
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(transform.position, _checkRadius);
+            Gizmos.DrawWireSphere(_checkPosition.position, _checkRadius);
         }
     }
 }
