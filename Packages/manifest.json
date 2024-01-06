@@ -2,6 +2,7 @@
   "dependencies": {
     "com.brogrammist.jsam": "https://github.com/jackyyang09/Simple-Unity-Audio-Manager.git",
     "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+    "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.stinkysteak.simulationtimer": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
     "com.unity.feature.2d": "2.0.0",
     "com.unity.ide.visualstudio": "2.0.22",
