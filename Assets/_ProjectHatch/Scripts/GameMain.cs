@@ -4,7 +4,7 @@ namespace ProjectHatch
 {
     public static class GameMain
     {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Init()
         {
             InitializeSingleton();
