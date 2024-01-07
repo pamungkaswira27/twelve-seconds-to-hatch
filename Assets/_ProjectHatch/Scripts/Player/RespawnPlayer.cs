@@ -20,7 +20,7 @@ namespace ProjectHatch
             }
         }
 
-        private void Die ()
+        public void Die ()
         {
             GameObject vfx = Instantiate(_deadVFX.gameObject, transform.position, Quaternion.identity);
             Destroy(vfx, _deadVFX.main.duration);

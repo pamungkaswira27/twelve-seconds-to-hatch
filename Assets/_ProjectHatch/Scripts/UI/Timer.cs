@@ -25,7 +25,7 @@ namespace ProjectHatch
 
             if (_gameTimer.IsExpired())
             {
-                Debug.Log("Lose");
+                PlayerManager.Instance.RespawnPlayer.Die();
             }
 
             SetText(_gameTimer.RemainingSeconds);
