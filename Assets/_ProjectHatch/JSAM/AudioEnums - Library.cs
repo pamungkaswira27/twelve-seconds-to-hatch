@@ -4,10 +4,11 @@ namespace ProjectHatch.Audio {
         Dead,
         Jump,
         Victory,
-        UIButtonClick
+        UIButtonClick,
+        Land
     }
 }
-namespace ProjectH.Audio {
+namespace ProjectHatch.Audio {
     public enum Music {
     }
 }

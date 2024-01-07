@@ -22,16 +22,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 31d1f5e2286e81945b6dc591c4517afb, type: 2}
   - {fileID: 11400000, guid: e4a5bb17c927b964db56c7736ab71409, type: 2}
   - {fileID: 11400000, guid: 727e0dd88a1df0545b6c71f5bb6ef17a, type: 2}
+  - {fileID: 11400000, guid: 4d1b7d66411dd28408ea8d7a7920cfa3, type: 2}
   Music: []
   useCustomNames: 1
   generatedName: Library
   musicEnum: Music
   musicEnumGenerated: Music
-  musicNamespace: ProjectH.Audio
+  musicNamespace: ProjectHatch.Audio
   musicNamespaceGenerated: ProjectH.Audio
   soundEnum: Sound
   soundEnumGenerated: Sound
-  soundNamespace: ProjectH.Audio
+  soundNamespace: ProjectHatch.Audio
   soundNamespaceGenerated: ProjectH.Audio
   soundCategoriesToList:
   - name: 
@@ -41,6 +42,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 31d1f5e2286e81945b6dc591c4517afb, type: 2}
     - {fileID: 11400000, guid: e4a5bb17c927b964db56c7736ab71409, type: 2}
     - {fileID: 11400000, guid: 727e0dd88a1df0545b6c71f5bb6ef17a, type: 2}
+    - {fileID: 11400000, guid: 4d1b7d66411dd28408ea8d7a7920cfa3, type: 2}
     foldout: 1
   musicCategoriesToList:
   - name: 
