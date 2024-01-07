@@ -29,11 +29,11 @@ MonoBehaviour:
   musicEnum: Music
   musicEnumGenerated: Music
   musicNamespace: ProjectHatch.Audio
-  musicNamespaceGenerated: ProjectH.Audio
+  musicNamespaceGenerated: ProjectHatch.Audio
   soundEnum: Sound
   soundEnumGenerated: Sound
   soundNamespace: ProjectHatch.Audio
-  soundNamespaceGenerated: ProjectH.Audio
+  soundNamespaceGenerated: ProjectHatch.Audio
   soundCategoriesToList:
   - name: 
     files:
