@@ -25,7 +25,7 @@ namespace ProjectHatch
             GameObject vfx = Instantiate(_deadVFX.gameObject, transform.position, Quaternion.identity);
             Destroy(vfx, _deadVFX.main.duration);
             AudioManager.PlaySound(_deadSFX);
-            InputManager.Instance.PlayerInputAction.Disable();
+            InputManager.Instance.PlayerInputAction.Player.Disable();
             TimerManager.Instance.ResetTimer();
             gameObject.SetActive(false);
 
@@ -34,7 +34,7 @@ namespace ProjectHatch
 
         private void Respawn()
         {
-            InputManager.Instance.PlayerInputAction.Enable();
+            InputManager.Instance.PlayerInputAction.Player.Enable();
             transform.position = PlayerSpawnManager.Instance.GetInitialSpawnPosition();
 
             if (transform.localScale.x == -1f)

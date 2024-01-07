@@ -1,4 +1,5 @@
 using ProjectHatch.UI.GUI.Game.Transition;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace ProjectHatch
         private Queue<Level> _levelQueue;
         private Level _currentLevelPrefab;
         private int _currentLevelIndex = 0;
+
+        public event Action OnLevelEnd;
 
         private void Awake()
         {
@@ -33,7 +36,8 @@ namespace ProjectHatch
 
             if (_currentLevelIndex >= _levelQueue.Count)
             {
-                Debug.Log($"[{nameof(LevelManager)}]: You've finished all levels!");
+                InputManager.Instance.PlayerInputAction.Player.Disable();
+                OnLevelEnd?.Invoke();
                 return;
             }
 
@@ -77,7 +81,7 @@ namespace ProjectHatch
         private IEnumerator LoadNextLevel_Coroutine()
         {
             GUITransition.Instance.PlayEnterTransition();
-            InputManager.Instance.PlayerInputAction.Disable();
+            InputManager.Instance.PlayerInputAction.Player.Disable();
 
             yield return new WaitForSeconds(GUITransition.Instance.EnterDuration);
 
@@ -87,7 +91,7 @@ namespace ProjectHatch
             yield return new WaitForSeconds(GUITransition.Instance.ExitDuration);
 
             GUITransition.Instance.PlayExitTransition();
-            InputManager.Instance.PlayerInputAction.Enable();
+            InputManager.Instance.PlayerInputAction.Player.Enable();
             TimerManager.Instance.ResetTimer();
         }
     }

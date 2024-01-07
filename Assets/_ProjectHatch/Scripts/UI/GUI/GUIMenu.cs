@@ -14,6 +14,7 @@ namespace ProjectHatch.UI.GUI.Game.Menu
 
         private void Start()
         {
+            GUITransition.Instance.PlayExitTransition();
             _buttonPlay.onClick.AddListener(PlayGame);
         }
 
