@@ -39,6 +39,7 @@ namespace ProjectHatch
             }
 
             LevelManager.Instance.LoadNextLevel();
+            JSAM.AudioManager.PlaySound(Audio.Sound.Victory);
             _isTriggered = true;
         }
 
