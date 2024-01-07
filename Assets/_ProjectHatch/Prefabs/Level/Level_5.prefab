@@ -2822,6 +2822,14 @@ PrefabInstance:
       value: Press Space again to perform Wall Jump while touching the wall
       objectReference: {fileID: 0}
     - target: {fileID: 420036548540778495, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 420036548540778495, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 420036548540778495, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 32
       objectReference: {fileID: 0}
@@ -2834,12 +2842,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2855,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -75
+      value: 870.5
       objectReference: {fileID: 0}
     - target: {fileID: 3831040385175124757, guid: 5585a890bba7b3448a9f84cfc51b7cc3, type: 3}
       propertyPath: m_AnchoredPosition.y
