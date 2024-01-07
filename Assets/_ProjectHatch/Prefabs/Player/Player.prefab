@@ -263,12 +263,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985bd24b578176649b3a345fffb938ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteTransform: {fileID: 1141518894803094717}
   _playerMovement: {fileID: 1141518895653616372}
   _vfxDustPrefab: {fileID: 5887912450836460648, guid: c472de3ddcd6d73439f9bafade2f4b63, type: 3}
   _positionVfxDust: {fileID: 1141518895370908268}
   _jumpSfx: {fileID: 11400000, guid: 31d1f5e2286e81945b6dc591c4517afb, type: 2}
   _dashSfx: {fileID: 11400000, guid: 140b2d17421528c47927195b68e2ca9f, type: 2}
   _landSfx: {fileID: 11400000, guid: 4d1b7d66411dd28408ea8d7a7920cfa3, type: 2}
+  _dashTrailPrefab: {fileID: 5032462638113992420, guid: fe6064f3cc972b141ac3a8fcab825be6, type: 3}
+  _dashTrailInterval: 0.05
+  _dashTrailDuration: 0.25
 --- !u!114 &4438164380946665417
 MonoBehaviour:
   m_ObjectHideFlags: 0
