@@ -1,6 +1,7 @@
 using UnityEngine;
 using StinkySteak.SimulationTimer;
 using ProjectHatch.UI.GUI.Game;
+using System;
 
 namespace ProjectHatch
 {
@@ -49,11 +50,7 @@ namespace ProjectHatch
                 return;
             }
 
-            int Minutes = Mathf.FloorToInt(timeToDisplay / 60);
-            int Seconds = Mathf.FloorToInt(timeToDisplay % 60);
-            float MilleSeconds = timeToDisplay % 1 * 99;
-
-            _gUIGame.TextTimer.text = string.Format("{1:00}:{2:00}", Minutes, Seconds, MilleSeconds);
+            _gUIGame.TextTimer.text = TimeSpan.FromSeconds(timeToDisplay).ToString(@"ss\:ff");
         }
     }
 }
