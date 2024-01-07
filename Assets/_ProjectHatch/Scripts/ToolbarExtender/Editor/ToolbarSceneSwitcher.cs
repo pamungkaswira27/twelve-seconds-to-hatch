@@ -19,12 +19,12 @@ namespace ProjectHatch.Editor.Toolbar
 
             if (GUILayout.Button(new GUIContent("Menu", "Menu")))
             {
-                EditorSceneManager.OpenScene("Assets/_ProjectHatch/Scenes/Game.unity");
+                EditorSceneManager.OpenScene("Assets/_ProjectHatch/Scenes/Menu.unity");
             }
 
             if (GUILayout.Button(new GUIContent("Game", "Game")))
             {
-                EditorSceneManager.OpenScene("Assets/_ProjectHatch/Scenes/Menu.unity");
+                EditorSceneManager.OpenScene("Assets/_ProjectHatch/Scenes/Game.unity");
             }
         }
     }
