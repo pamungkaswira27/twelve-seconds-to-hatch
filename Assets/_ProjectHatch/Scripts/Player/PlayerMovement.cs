@@ -78,7 +78,7 @@ namespace ProjectHatch
             _groundCheckResults = new Collider2D[CHECK_RESULT_SIZE];
             _wallCheckResults = new Collider2D[CHECK_RESULT_SIZE];
 
-            _wallJumpingPower = new Vector2(_speed * Time.deltaTime, _jumpPower);
+            _wallJumpingPower = new Vector2(_speed * (1 / 60f), _jumpPower);
             _originalGravity = _rigidbody.gravityScale;
         }
 
