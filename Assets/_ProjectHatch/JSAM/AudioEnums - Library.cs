@@ -1,4 +1,4 @@
-namespace ProjectH.Audio {
+namespace ProjectHatch.Audio {
     public enum Sound {
         Dash,
         Dead,
