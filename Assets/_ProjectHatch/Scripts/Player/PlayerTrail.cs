@@ -27,8 +27,6 @@ namespace ProjectHatch.Player.Movement.Visual
             _instanceMaterial.SetColor("_TargetColor", color);
 
             _spriteRenderer.color = color;
-
-            print(color);
         }
     }
 }
