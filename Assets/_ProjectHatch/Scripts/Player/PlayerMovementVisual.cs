@@ -10,12 +10,14 @@ namespace ProjectHatch.Player.Movement.Visual
         [SerializeField] private Transform _positionVfxDust;
         [SerializeField] private SoundFileObject _jumpSfx;
         [SerializeField] private SoundFileObject _dashSfx;
+        [SerializeField] private SoundFileObject _landSfx;
 
         private void Start()
         {
             _playerMovement.OnPlayerJustGrounded += PlayDustVFX;
             _playerMovement.OnPlayerJumped += OnPlayerJumped;
             _playerMovement.OnPlayerDashed += OnPlayerDash;
+            _playerMovement.OnPlayerWallJumped += OnPlayerJumped;
         }
 
         private void OnPlayerDash()
@@ -33,6 +35,8 @@ namespace ProjectHatch.Player.Movement.Visual
         {
             var go = Instantiate(_vfxDustPrefab, _positionVfxDust.position, Quaternion.Euler(-90, 0, 0));
             Destroy(go, 2f);
+
+            AudioManager.PlaySound(_landSfx);
         }
     }
 }
