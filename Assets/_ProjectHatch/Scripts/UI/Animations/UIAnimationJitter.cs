@@ -7,8 +7,8 @@ namespace ProjectHatch.UI.Animation
     public class UIAnimationJitter : MonoBehaviour
     {
         [SerializeField] private Vector3 _direction = Vector3.up;
-        [SerializeField] private float _interval;
-        [SerializeField] private float _distance = 1f;
+        [SerializeField] private float _interval = 0.5f;
+        [SerializeField] private float _distance = 5f;
         [SerializeField][ReadOnly] private Vector3 _initialPosition;
         private bool _flipFlop;
 
