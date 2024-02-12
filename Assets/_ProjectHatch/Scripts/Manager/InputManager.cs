@@ -38,9 +38,12 @@ namespace ProjectHatch
 
         public bool IsJumpButtonPressed()
         {
-            return _playerInputAction.Player.Jump.IsPressed(); ;
+            return _playerInputAction.Player.Jump.IsPressed();
         }
-
+        public bool IsJumpButtonWasPressed()
+        {
+            return _playerInputAction.Player.Jump.WasPressedThisFrame();
+        }
         public bool IsInputPerformed()
         {
             bool isMovePerformed = _playerInputAction.Player.Move.IsPressed();

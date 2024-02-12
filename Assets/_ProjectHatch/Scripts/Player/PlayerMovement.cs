@@ -264,7 +264,7 @@ namespace ProjectHatch
                 _wallJumpingCounter -= Time.deltaTime;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && _wallJumpingCounter > 0f)
+            if (InputManager.Instance.IsJumpButtonWasPressed() && _wallJumpingCounter > 0f)
             {
                 _isWallJumping = true;
                 _rigidbody.velocity = new Vector2(_wallJumpingDirection * _wallJumpingPower.x, _wallJumpingPower.y);
