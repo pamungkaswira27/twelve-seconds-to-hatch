@@ -21,6 +21,13 @@
       "dependencies": {},
       "hash": "dbd76ed996483d219c39d240f785b1790aa039ed"
     },
+    "com.stinkysteak.custom-input-provider": {
+      "version": "https://github.com/StinkySteak/unity-custom-input-provider.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bdf055065b31af44ab308659ddcb92ac857507af"
+    },
     "com.stinkysteak.simulationtimer": {
       "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
       "depth": 0,
